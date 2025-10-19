@@ -16,6 +16,11 @@ int main()
     printf("Area of rectange: %f\n", area);
     printf("Perimeter of rectange: %f\n", peri);
 
+    if (area > peri)
+        printf("Area is greater than perimeter\n");
+    else
+        printf("Area is not greater than perimeter\n");
+
     printf("Enter the radius of circle: ");
     scanf("%f", &r);
     
