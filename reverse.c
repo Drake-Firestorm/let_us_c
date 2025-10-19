@@ -30,6 +30,11 @@ int main()
     reverse = ra1 * 1e4 + ra2 * 1e3 + ra3 * 1e2 + ra4 * 1e1 + ra5;
 
     printf("Reverse of %d: %d\n", a, reverse);
+    
+    if (a == reverse)
+        printf("Reversed number is equal to original\n");
+    else
+        printf("Reversed number is not equal to original\n");
 
     return 0;
 }
