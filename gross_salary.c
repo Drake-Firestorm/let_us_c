@@ -10,8 +10,17 @@ int main()
     scanf("%f", &bp);
 
     /* calculate da, hra, gross salary */
-    da = 0.4 * bp;
-    hra = 0.2 * bp;
+    if (bp < 1500)
+        {
+            hra = bp * 10 / 100.0;
+            da = bp * 90 / 100.0;
+        }
+    else
+        {
+            hra = 500;
+            da = bp * 98 / 100.0;
+        }
+
     gs = bp + da + hra;
 
     printf("Basic pay = %f\n", bp);
