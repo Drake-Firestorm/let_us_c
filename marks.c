@@ -21,18 +21,12 @@ int main()
 
     if (perc >= 60)
         printf("First division\n");
+    if ((perc >= 50) && (perc < 60))
+        printf("Second division\n");
+    if ((perc >= 40) && (perc < 50))
+        printf("Third division\n");
     else
-    {
-        if (perc >= 50)
-            printf("Second division\n");
-        else
-        {
-            if (perc >= 40)
-                printf("Third division\n");
-            else
-                printf("Fail\n");
-        }
-    }
-    
+        printf("Fail\n");
+
     return 0;
 }
