@@ -18,6 +18,21 @@ int main()
 
     printf("Aggregate marks: %f\n", agg);
     printf("Percentage marks: %f\n", perc);
+
+    if (perc >= 60)
+        printf("First division\n");
+    else
+    {
+        if (perc >= 50)
+            printf("Second division\n");
+        else
+        {
+            if (perc >= 40)
+                printf("Third division\n");
+            else
+                printf("Fail\n");
+        }
+    }
     
     return 0;
 }
