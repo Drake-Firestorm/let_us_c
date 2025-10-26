@@ -3,7 +3,7 @@
 # include <stdio.h>
 # include <math.h>
 
-void prime(int);
+void prime(int, int);
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
     scanf("%d", &num);
 
     printf("Prime factors of %d: ", num);
-    prime(num);
+    prime(num, 2);
 
     printf("\n");
 
@@ -22,21 +22,16 @@ int main()
 
 
 // prime factors
-void prime(int num)
+void prime(int num, int i)
 {
-    int i, j, copy = num;
-
-    for(i = 2; i <= copy; i++)
+    if(i <= num)
     {
-        for(j = 1; j <= copy; j++)
+        if(num % i == 0)
         {
-            if(copy % i == 0)
-            {
-                printf("%d ", i);
-                copy /= i;
-            }
-            else
-                break;
+            printf("%d ", i);
+            prime(num / i, i);
         }
+        else
+            prime(num, ++i);
     }
 }
