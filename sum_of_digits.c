@@ -2,6 +2,8 @@
 
 # include <stdio.h>
 
+int digit_sum(int);
+
 int main()
 {
     int num, copy, d1, d2, d3, d4, d5, sum;
@@ -9,18 +11,22 @@ int main()
     printf("Enter 5 digit number: ");
         scanf("%d", &num);
 
-    // copy number
-    copy = num;
-
-    d1 = copy % 10; copy = copy / 10;
-    d2 = copy % 10; copy = copy / 10;
-    d3 = copy % 10; copy = copy / 10;
-    d4 = copy % 10; copy = copy / 10;
-    d5 = copy % 10; copy = copy / 10;
-
-    sum = d1 + d2 + d3 + d4 + d5;
+    sum = digit_sum(num);
 
     printf("Sum of digits of %d: %d\n", num, sum);
 
     return 0;
+}
+
+
+int digit_sum(int number)
+{
+    int sum;
+
+    if(number != 0)
+        sum = (number % 10) + digit_sum(number / 10);
+    else
+        return 0;
+
+    return (sum);
 }
