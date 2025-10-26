@@ -2,19 +2,28 @@
 
 # include <stdio.h>
 
+float power(float, int);
+
 int main()
 {
-    int num1, num2, power, i;
+    int num2;
+    float num1, p;
 
     printf("Enter number and power: ");
-    scanf("%d %d", &num1, &num2);
+    scanf("%f %d", &num1, &num2);
 
-    power = i = 1;
-    while (i <= num2)
-    {
-        power *= num1;
-        i += 1;
-    }
+    p = power(num1, num2);
 
-    printf("%d raised to %d is %d\n", num1, num2, power);
+    printf("%f raised to %d is %f\n", num1, num2, p);
+}
+
+float power(float num1, int num2)
+{
+    int i;
+    float p = 1;
+
+    for (i = 1; i <= num2; i++)
+        p *= num1;
+
+    return (p);
 }
