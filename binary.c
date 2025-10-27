@@ -21,45 +21,15 @@ int main()
 
 int to_binary(int number)
 {
-    int copy, binary, digit, counter;
+    int rem, binary;
 
-    copy = number;
-    binary = digit = counter = 0;
+    rem = number % 2;
+    number /= 2;
 
-    while(copy > 0)
-    {
-        if(copy % 2 == 1)
-            digit++;
-        
-        binary *= 10;
-        binary += copy % 2;
-        copy /= 2;
+    if(number == 0)
+        return(rem);
+    else    
+        binary = rem + (10 * to_binary(number));
 
-        counter++;
-    }
-
-    if(digit > 1)
-    {
-        copy = binary;
-        binary = 0;
-
-        while(copy > 0)
-        {
-            binary *= 10;
-            binary += copy % 10;
-            copy /= 10;
-        }
-    }
-    else
-    {
-        counter--;
-        
-        while(counter > 0)
-        {
-            binary *= 10;
-            counter--;
-        }
-    }
-    
-    return (binary);
+    return binary;
 }
