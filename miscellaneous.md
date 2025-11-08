@@ -16,3 +16,14 @@ Here are a few useful commands to get started with GDB.
 | quit or q | Exits out of GDB. |
 | clear | Clears all breakpoints. |
 | continue | Continues normal execution |
+
+
+# Clear buffer
+Alternate to `fflush(stdin);`
+
+```{c}
+void clear_input_buffer(){
+    int c;
+    while((c = getchar()) != '\n' && c != EOF);
+}
+```
