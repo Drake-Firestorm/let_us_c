@@ -9,21 +9,32 @@ int is_vowel(char c);
 
 int main()
 {
-    int len, i, j;
+    int len;
+    char *s, *s1;
     char str[MAX], str1[MAX];
 
     printf("Enter string (max %d characters): ", MAX - 1);
     fgets(str, sizeof str, stdin);
 
-    for(i = 0, j = 0; i < strlen(str) - 1; i++)
-        if(!is_vowel(str[i]))
-        {
-            str1[j] = str[i];
-            j++;
-        }
-    str1[j] = '\0';
+    // strip newline at end
+    len = strlen(str);
+    if(str[len - 1] == '\n')
+        str[len - 1] = '\0';
 
-    printf("%s\n", str1);
+    s = str;
+    s1 = str1;
+
+    while(*s)
+    {
+        if(!is_vowel(*s))
+            *s1++ = *s++;
+        else
+            s++;
+    }
+
+    *s1 = '\0';
+
+    puts(str1);
     
     return 0;
 }
