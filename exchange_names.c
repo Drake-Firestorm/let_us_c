@@ -4,19 +4,15 @@
 
 int main()
 {
-    int i;
-    char t, names[][20] = {"akshay", "parag", "raman", "srinivas", "gopal", "rajesh"};
+    char *t, *names[] = {"akshay", "parag", "raman", "srinivas", "gopal", "rajesh"};
 
-    printf("Original: %s %s\n", &names[2][0], &names[3][0]);
+    printf("Original: %s %s\n", names[2], names[3]);
 
-    for(i = 0; i <= 19; i++)
-    {
-        t = names[2][i];
-        names[2][i] = names[3][i];
-        names[3][i] = t;
-    }
+    t = names[2];
+    names[2] = names[3];
+    names[3] = t;
 
-    printf("New: %s %s\n", &names[2][0], &names[3][0]);
+    printf("New: %s %s\n", names[2], names[3]);
     
     return 0;
 }
