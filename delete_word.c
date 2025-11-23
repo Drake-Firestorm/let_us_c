@@ -7,33 +7,41 @@
 
 int main()
 {
-    int i, j, k;
+    int i;
+    char *s, *s1, *t;
     char temp[4], str[MAX], str1[MAX];
 
     printf("Enter the string: ");
     fgets(str, sizeof str, stdin);
 
-    for(i = 0, k = 0; i < strlen(str) - 1; i++)
+    // remove newline char at end
+    i = strlen(str);
+    if(str[i - 1] == '\n')
+        str[i - 1] = '\0';
+
+    s = str;
+    s1 = str1;
+    t = temp;
+    
+    while(*s)
     {
-        *temp = '\0';
+        for(i = 0; i < 3 ; i++)
+            *t++ = *s++;
+        *t = '\0';
 
-        for(j = 0; j < 3 ; j++)
-            temp[j] = str[i + j];
-
-        temp[j] = '\0';
-
+        t -= 3; //reset pointer to start
+        
         if(strcmp(temp, "the") != 0)
         {
-            str1[k] = str[i];
-            k++;
+            s -= 3; // rollback 3 elements
+
+            *s1++ = *s++;
         }
-        else
-            i += 2;
     }
 
-    str1[k] = '\0';
+    *s1 = '\0';
 
-    printf("%s\n", str1);
+    puts(str1);
 
     return 0;
 }
