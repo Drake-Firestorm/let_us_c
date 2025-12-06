@@ -12,20 +12,19 @@ int main()
         int pages;
     };
 
-    struct book b1, b2, b3;
+    struct book b[10];
+    int i, dh;
 
-    printf("Enter names, prices and no. of pages of 3 books\n");
-    scanf("%c %f %d", &b1.name, &b1.price, &b1.pages);
+    for(i = 0; i < 10; i++)
+    {
+        printf("Enter names, prices and no. of pages\n");
+        scanf("%c %f %d", &b[i].name, &b[i].price, &b[i].pages);
         clear_input_buffer();
-    scanf("%c %f %d", &b2.name, &b2.price, &b2.pages);
-        clear_input_buffer();
-    scanf("%c %f %d", &b3.name, &b3.price, &b3.pages);
-        clear_input_buffer();
-    
+    }
+
     printf("And this is what you entered\n");
-    printf("%c %f %d\n", b1.name, b1.price, b1.pages);
-    printf("%c %f %d\n", b2.name, b2.price, b2.pages);
-    printf("%c %f %d\n", b3.name, b3.price, b3.pages);
+    for(i = 0; i < 10; i++)
+        printf("%c %f %d\n", b[i].name, b[i].price, b[i].pages);
 
     return 0;
 }
