@@ -1,31 +1,25 @@
-/* Employee details */
+/* Nested struct */
 
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
-    struct employee
+    struct address
     {
-        char name[10];
-        int age;
-        float salary;
+        char phone[15], city[15];
+        int pin;
+    };
+    
+    struct emp
+    {
+        char name[25];
+        struct address a;
     };
 
-    struct employee e1 = {"Sanjay", 30, 5500.50};
-    struct employee e2, e3;
-    /*  piece-meal copying */
-    strcpy(e2.name, e1.name);   /* e2.name = e1.name is wrong */
-    e2.age = e1.age;
-    e2.salary = e1.salary;
-
-    /* copying all elements at once */
-    e3 = e2;
-
-    printf("%s %d %f\n", e1.name, e1.age, e1.salary);
-    printf("%s %d %f\n", e2.name, e2.age, e2.salary);
-    printf("%s %d %f\n", e3.name, e3.age, e3.salary);
+    struct emp e = {"jeru", "2531046", "nagpur", 10};
+    
+    printf("name = %s phone = %s\n", e.name, e.a.phone);
+    printf("city = %s pin = %d\n", e.a.city, e.a.pin);      // dot operator used twice
 
     return 0;
 }
-
